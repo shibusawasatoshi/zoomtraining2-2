@@ -30,9 +30,9 @@ const bgm=new Array(bgm0,bgm1,bgm2,bgm3,bgm4,bgm5,bgm6,bgm7,bgm8,bgm9);
 const result_rep=new Array('apple');
 
 function countdown(){
-    count=0;
+    count=-1;
     let downid = setTimeout(countdown, 1000);
-    console.log(`下げるカウント${downcount++}`));
+    console.log(`上げるカウント${downcount++}`);
     
     
     if(downcount > 3){　
@@ -40,8 +40,8 @@ function countdown(){
       repcount++;
       console.log(`行なった回数${repcount}`);
       const down_promice=new Promise((resolve,)=>{
-        bgmup.play();
-        setTimeout(console.log('間隔'),1000);
+       // bgmup.play();
+        setTimeout(console.log('間隔'),10000);
         resolve();
     });
     down_promice.then(()=>{
@@ -59,14 +59,14 @@ function countdown(){
 
 
 function countup(){
-    downcount=0;
+    downcount=-1;
     let id = setTimeout(countup, 1000);
-    console.log(`上げるカウント${count++}`);
+    console.log(`下げるカウント${count++}`);
     if(count > 4){　
       clearTimeout(id);　//idをclearTimeoutで指定している
       const up_promice=new Promise((resolve,)=>{
-        bgmdown.play();
-        setTimeout(console.log('間隔'),1000);
+       // bgmdown.play();
+        setTimeout(console.log('間隔'),10000);
         resolve();
     });
     up_promice.then(()=>{
@@ -91,17 +91,32 @@ function countup(){
 
 
 
-function voicecount_down(){
+async function voicecount_down(){
     let downbgm = setTimeout(voicecount_down, 1000);
+    
     bgmcount_up=0;
     console.log(bgmcount_down);
     if(bgmcount_down > 3){　
-      clearTimeout(downbgm);　//idをclearTimeoutで指定している
-      window.setTimeout(voicecount_up(),1000);
+        const up_promice=new Promise((resolve,)=>{
+            clearTimeout(downbgm);
+             bgmdown.play();
+            
+             setTimeout(()=>{
+                resolve();
+                console.log('a');
+               },1000);
+         });
+         await up_promice.then(()=>{
+            voicecount_up();
+        });
+      　//idをclearTimeoutで指定している
+      
     }else if(timer==1||timer==2){
         clearTimeout(downbgm);
-}if(timer==0){bgm[bgmcount_down].play();
-bgmcount_down=bgmcount_down+1;}
+}if(timer==0&&bgmcount_down<4){
+    bgm[bgmcount_down].play();
+    bgmcount_down=bgmcount_down+1;
+    }
 }
 
 
@@ -110,18 +125,33 @@ bgmcount_down=bgmcount_down+1;}
 
 
 
-function voicecount_up(){
+async function voicecount_up(){
+    
     bgmcount_down=0;
     let upbgm = setTimeout(voicecount_up, 1000);
     
     console.log(bgmcount_up);
     if(bgmcount_up > 2){　
-      clearTimeout(upbgm);　//idをclearTimeoutで指定している
-      window.setTimeout(voicecount_down(),1000);
+        const down_promice=new Promise((resolve,)=>{
+            bgmup.play();
+            clearTimeout(upbgm);
+            setTimeout(()=>{
+                resolve();
+                console.log('a');
+               },1000);
+         });
+        await down_promice.then(()=>{
+            voicecount_down();
+        });
+     
+     　//idをclearTimeoutで指定している
+      
     }else if(timer==1||timer==2){
         clearTimeout(upbgm);
-}if(timer==0){bgm[bgmcount_up].play();
-bgmcount_up=bgmcount_up+1;}
+}if(timer==0&&bgmcount_up<3){
+    bgm[bgmcount_up].play();
+    bgmcount_up=bgmcount_up+1;
+}
 }
 
 
@@ -136,9 +166,18 @@ start.onclick= function(){
     timer=0;
     downcount=0;
     count=0;
-    voicecount_down();
-    countup();
-    bgmup.play();
+    const first_up_promice=new Promise((resolve,)=>{
+         bgmup.play();
+        
+         setTimeout(()=>{
+             resolve();
+             console.log('a');
+            },1000);
+     });
+     first_up_promice.then(()=>{
+        countup();
+        voicecount_down();
+    });
     }
 };
    
