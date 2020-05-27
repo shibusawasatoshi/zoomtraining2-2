@@ -91,7 +91,7 @@ function countup(){
 
 
 
-async function voicecount_down(){
+function voicecount_down(){
     let downbgm = setTimeout(voicecount_down, 1000);
     
     bgmcount_up=0;
@@ -106,7 +106,7 @@ async function voicecount_down(){
                 console.log('a');
                },1000);
          });
-         await up_promice.then(()=>{
+         up_promice.then(()=>{
             voicecount_up();
         });
       　//idをclearTimeoutで指定している
@@ -125,7 +125,7 @@ async function voicecount_down(){
 
 
 
-async function voicecount_up(){
+function voicecount_up(){
     
     bgmcount_down=0;
     let upbgm = setTimeout(voicecount_up, 1000);
@@ -140,7 +140,7 @@ async function voicecount_up(){
                 console.log('a');
                },1000);
          });
-        await down_promice.then(()=>{
+       down_promice.then(()=>{
             voicecount_down();
         });
      
