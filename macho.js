@@ -13,7 +13,8 @@ const bgm6 = document.querySelector('.bgm6');
 const bgm7 = document.querySelector('.bgm7');
 const bgm8 = document.querySelector('.bgm8');
 const bgm9 = document.querySelector('.bgm9');
-
+const bgm10 = document.querySelector('.bgm10');
+const bgm11= document.querySelector('.bgm11');
 
 
 let count = 0;
@@ -137,7 +138,7 @@ finish.onclick= function(){
     bgmcount_up=0;
     bgmcount_down=0;
     setcount++;
-    log.innerHTML=`行なった回数は${repcount}回です。`;
+    log.innerHTML=``;
     result_rep.push(`<div> ${setcount}セット目に行なった回数は${repcount}回です。</div>`);
     result.insertAdjacentHTML('beforeend',result_rep[setcount] );
     repcount=0;
