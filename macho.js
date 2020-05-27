@@ -32,7 +32,7 @@ const result_rep=new Array('apple');
 function countdown(){
     count=0;
     let downid = setTimeout(countdown, 1000);
-    console.log(downcount++);
+    console.log(`下げるカウント${downcount++}`));
     
     
     if(downcount > 3){　
@@ -61,7 +61,7 @@ function countdown(){
 function countup(){
     downcount=0;
     let id = setTimeout(countup, 1000);
-    console.log(count++);
+    console.log(`上げるカウント${count++}`);
     if(count > 4){　
       clearTimeout(id);　//idをclearTimeoutで指定している
       const up_promice=new Promise((resolve,)=>{
@@ -70,7 +70,6 @@ function countup(){
         resolve();
     });
     up_promice.then(()=>{
-
       countdown();
     });
      
