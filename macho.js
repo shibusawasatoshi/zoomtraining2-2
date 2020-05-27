@@ -13,8 +13,8 @@ const bgm6 = document.querySelector('.bgm6');
 const bgm7 = document.querySelector('.bgm7');
 const bgm8 = document.querySelector('.bgm8');
 const bgm9 = document.querySelector('.bgm9');
-const bgm10 = document.querySelector('.bgm10');
-const bgm11= document.querySelector('.bgm11');
+const bgmdown = document.querySelector('.bgmdown');
+const bgmup= document.querySelector('.bgmup');
 
 
 let count = 0;
@@ -34,6 +34,7 @@ function countdown(){
     
     let downid = setTimeout(countdown, 1000);
     console.log(downcount++);
+    bgmdown.play();
     
     if(downcount > 3){　
        
@@ -57,6 +58,7 @@ function countup(){
     let id = setTimeout(countup, 1000);
     console.log(count++);
     
+    bgmup.play();
     if(count > 4){　
         
       clearTimeout(id);　//idをclearTimeoutで指定している
