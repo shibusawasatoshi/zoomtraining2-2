@@ -43,7 +43,7 @@ function countdown(){
       repcount++;
       console.log(`行なった回数${repcount}`);
       bgmup.play();
-      countup();
+      setTimeout(countup(),1000);
     }else if(timer==1||timer==2){
         clearTimeout(downid);
     }else{
@@ -64,7 +64,7 @@ function countup(){
         
       clearTimeout(id);　//idをclearTimeoutで指定している
       bgmdown.play();
-      countdown();
+      setTimeout(countdown(),1000);
     }else if(timer==1||timer==2){
         clearTimeout(id);
     }else{
@@ -129,6 +129,7 @@ start.onclick= function(){
     count=0;
     countup();
     voicecount_down();
+    bgmdown.play();
     }
 };
    
