@@ -45,7 +45,7 @@ function countdown(){
         resolve();
     });
     down_promice.then(()=>{
-    setTimeout(countup(),1000);});
+   countup()});
 
     }else if(timer==1||timer==2){
         clearTimeout(downid);
@@ -71,7 +71,7 @@ function countup(){
     });
     up_promice.then(()=>{
 
-        setTimeout(countdown(),1000);
+      countdown();
     });
      
     }else if(timer==1||timer==2){
