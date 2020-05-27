@@ -137,8 +137,8 @@ start.onclick= function(){
     timer=0;
     downcount=0;
     count=0;
-    countup();
     voicecount_down();
+    countup();
     bgmup.play();
     }
 };
