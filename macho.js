@@ -31,58 +31,55 @@ const result_rep=new Array('apple');
 
 function countdown(){
     count=0;
-    const down_promice=new Promise((resolve,reject)=>{
-        bgmdown.play();
-        resolve();
-    });
-
-    down_promice.then(()=>{
-        let downid = setTimeout(countdown, 1000);
+    let downid = setTimeout(countdown, 1000);
     console.log(downcount++);
     
     
     if(downcount > 3){　
-       
       clearTimeout(downid);　//idをclearTimeoutで指定している
-     
       repcount++;
       console.log(`行なった回数${repcount}`);
-      bgmup.play();
-      setTimeout(countup(),1000);
+      const down_promice=new Promise((resolve,)=>{
+        updown.play();
+        resolve();
+    });
+    down_promice.then(()=>{
+    setTimeout(countup(),1000);});
+
     }else if(timer==1||timer==2){
         clearTimeout(downid);
     }else{
       
         log.innerHTML=`上げる${downcount}`;
     }
-    });
+    }
     
-}
+
 
 
 function countup(){
     downcount=0;
-    const up_promice=new Promise((resolve,)=>{
+    let id = setTimeout(countup, 1000);
+    console.log(count++);
+    if(count > 4){　
+      clearTimeout(id);　//idをclearTimeoutで指定している
+      const up_promice=new Promise((resolve,)=>{
         bgmup.play();
         resolve();
     });
     up_promice.then(()=>{
-        let id = setTimeout(countup, 1000);
-        console.log(count++);
-    
-    
-    if(count > 4){　
-      clearTimeout(id);　//idをclearTimeoutで指定している
-      bgmdown.play();
-      setTimeout(countdown(),1000);
+
+        setTimeout(countdown(),1000);
+    });
+     
     }else if(timer==1||timer==2){
         clearTimeout(id);
     }else{
      
         log.innerHTML=`下げる${count}`;
     }
-    });
-}
+    };
+
 
 
 
