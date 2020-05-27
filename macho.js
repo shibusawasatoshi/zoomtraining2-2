@@ -34,7 +34,7 @@ function countdown(){
     
     let downid = setTimeout(countdown, 1000);
     console.log(downcount++);
-    bgmdown.play();
+    
     
     if(downcount > 3){　
        
@@ -42,6 +42,7 @@ function countdown(){
      
       repcount++;
       console.log(`行なった回数${repcount}`);
+      bgmup.play();
       countup();
     }else if(timer==1||timer==2){
         clearTimeout(downid);
@@ -58,11 +59,11 @@ function countup(){
     let id = setTimeout(countup, 1000);
     console.log(count++);
     
-    bgmup.play();
+    
     if(count > 4){　
         
       clearTimeout(id);　//idをclearTimeoutで指定している
-     
+      bgmdown.play();
       countdown();
     }else if(timer==1||timer==2){
         clearTimeout(id);
