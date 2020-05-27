@@ -31,8 +31,13 @@ const result_rep=new Array('apple');
 
 function countdown(){
     count=0;
-    
-    let downid = setTimeout(countdown, 1000);
+    const down_promice=new Promise((resolve,reject)=>{
+        bgmdown.play();
+        resolve();
+    });
+
+    down_promice.then(()=>{
+        let downid = setTimeout(countdown, 1000);
     console.log(downcount++);
     
     
@@ -50,18 +55,23 @@ function countdown(){
       
         log.innerHTML=`上げる${downcount}`;
     }
+    });
+    
 }
 
 
 function countup(){
     downcount=0;
-    
-    let id = setTimeout(countup, 1000);
-    console.log(count++);
+    const up_promice=new Promise((resolve,)=>{
+        bgmup.play();
+        resolve();
+    });
+    up_promice.then(()=>{
+        let id = setTimeout(countup, 1000);
+        console.log(count++);
     
     
     if(count > 4){　
-        
       clearTimeout(id);　//idをclearTimeoutで指定している
       bgmdown.play();
       setTimeout(countdown(),1000);
@@ -71,6 +81,7 @@ function countup(){
      
         log.innerHTML=`下げる${count}`;
     }
+    });
 }
 
 
@@ -129,7 +140,7 @@ start.onclick= function(){
     count=0;
     countup();
     voicecount_down();
-    bgmdown.play();
+    bgmup.play();
     }
 };
    
