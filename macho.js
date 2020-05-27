@@ -40,7 +40,7 @@ function countdown(){
       repcount++;
       console.log(`行なった回数${repcount}`);
       const down_promice=new Promise((resolve,)=>{
-        updown.play();
+        bgmup.play();
         resolve();
     });
     down_promice.then(()=>{
@@ -64,7 +64,7 @@ function countup(){
     if(count > 4){　
       clearTimeout(id);　//idをclearTimeoutで指定している
       const up_promice=new Promise((resolve,)=>{
-        bgmup.play();
+        bgmdown.play();
         resolve();
     });
     up_promice.then(()=>{
