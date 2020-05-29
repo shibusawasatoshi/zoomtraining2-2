@@ -113,7 +113,7 @@ function voicecount_down(){
       
     }else if(timer==1||timer==2){
         clearTimeout(downbgm);
-}if(timer==0&&bgmcount_down<2){
+}if(timer==0&&bgmcount_down<=1){
     bgm[bgmcount_down].play();
     bgmcount_down=bgmcount_down+1;
     }
@@ -148,7 +148,7 @@ function voicecount_up(){
       
     }else if(timer==1||timer==2){
         clearTimeout(upbgm);
-}if(timer==0&&bgmcount_up<2){
+}if(timer==0&&bgmcount_up<=1){
     bgm[bgmcount_up].play();
     bgmcount_up=bgmcount_up+1;
 }
