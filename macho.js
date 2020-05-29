@@ -35,7 +35,7 @@ function countdown(){
     console.log(`上げるカウント${downcount++}`);
     
     
-    if(downcount > 3){　
+    if(downcount > 2){　
       clearTimeout(downid);　//idをclearTimeoutで指定している
       repcount++;
       console.log(`行なった回数${repcount}`);
@@ -62,7 +62,7 @@ function countup(){
     downcount=-1;
     let id = setTimeout(countup, 1000);
     console.log(`下げるカウント${count++}`);
-    if(count > 4){　
+    if(count > 2){　
       clearTimeout(id);　//idをclearTimeoutで指定している
       const up_promice=new Promise((resolve,)=>{
        // bgmdown.play();
@@ -96,7 +96,7 @@ function voicecount_down(){
     
     bgmcount_up=0;
     console.log(bgmcount_down);
-    if(bgmcount_down > 3){　
+    if(bgmcount_down > 2){　
         const up_promice=new Promise((resolve,)=>{
             clearTimeout(downbgm);
              bgmdown.play();
