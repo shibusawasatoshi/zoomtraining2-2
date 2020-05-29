@@ -96,7 +96,7 @@ function voicecount_down(){
     
     bgmcount_up=0;
     console.log(bgmcount_down);
-    if(bgmcount_down > 2){　
+    if(bgmcount_down > 1){　
         const up_promice=new Promise((resolve,)=>{
             clearTimeout(downbgm);
              bgmdown.play();
@@ -113,7 +113,7 @@ function voicecount_down(){
       
     }else if(timer==1||timer==2){
         clearTimeout(downbgm);
-}if(timer==0&&bgmcount_down<4){
+}if(timer==0&&bgmcount_down<2){
     bgm[bgmcount_down].play();
     bgmcount_down=bgmcount_down+1;
     }
@@ -131,7 +131,7 @@ function voicecount_up(){
     let upbgm = setTimeout(voicecount_up, 1000);
     
     console.log(bgmcount_up);
-    if(bgmcount_up > 2){　
+    if(bgmcount_up > 1){　
         const down_promice=new Promise((resolve,)=>{
             bgmup.play();
             clearTimeout(upbgm);
@@ -148,7 +148,7 @@ function voicecount_up(){
       
     }else if(timer==1||timer==2){
         clearTimeout(upbgm);
-}if(timer==0&&bgmcount_up<3){
+}if(timer==0&&bgmcount_up<2){
     bgm[bgmcount_up].play();
     bgmcount_up=bgmcount_up+1;
 }
